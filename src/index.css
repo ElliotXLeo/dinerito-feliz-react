@@ -41,10 +41,6 @@ html {
   font-weight: normal;
 }
 
-#gastos {
-  margin-bottom: 2rem;
-}
-
 h1 {
   font-family: 'Raleway', sans-serif;
   font-weight: lighter;
@@ -70,7 +66,7 @@ h2 {
   text-align: center;
 }
 
-.alert {
+/* .alert {
   position: relative;
   padding: 0.5rem;
   margin-bottom: 1rem;
@@ -100,17 +96,21 @@ h2 {
   color: #856404;
   background-color: #fff3cd;
   border-color: #ffeeba;
+} */
+
+.gastos {
+  margin-bottom: 2rem;
 }
 
 .gastos-realizados {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .gastos-realizados li {
   list-style: none;
   margin-bottom: 0rem;
   border-bottom: 0.1rem solid #e1e1e1;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 .gastos-realizados li:last-of-type {
@@ -126,8 +126,9 @@ h2 {
 
 .gastos-realizados li p .gasto {
   background-color: #004085;
-  padding: 1rem;
+  padding: 0.25rem;
   color: white;
+  border-radius: 0.5rem;
 }
 
 .footer {

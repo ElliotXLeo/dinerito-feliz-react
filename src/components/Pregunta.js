@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import Error from './Error';
 
-const Pregunta = ({ guardarPresupuesto, guardarRestante }) => {
+const Pregunta = ({ guardarPresupuesto, guardarRestante, actualizarMostrarPregunta }) => {
 
   const [cantidad, guardarCantidad] = useState(0);
   const [error, guardarError] = useState(false);
@@ -20,7 +20,7 @@ const Pregunta = ({ guardarPresupuesto, guardarRestante }) => {
 
     guardarPresupuesto(cantidad);
     guardarRestante(cantidad);
-
+    actualizarMostrarPregunta(false);
   }
 
   return (
@@ -29,7 +29,7 @@ const Pregunta = ({ guardarPresupuesto, guardarRestante }) => {
       {
         error ?
           <Error
-            mensaje="El presupuesto debe ser un número mayor a 0"
+            mensaje="El presupuesto debe ser un número mayor a 0."
           />
           :
           null
@@ -52,7 +52,7 @@ const Pregunta = ({ guardarPresupuesto, guardarRestante }) => {
         </div>
 
         <div className="d-grid gap-2 my-4">
-          <button className="btn btn-primary" type="submit">💸 Registrar Presupuesto 💸</button>
+          <button className="btn btn-primary" type="submit">💸 Registrar presupuesto 💸</button>
         </div>
       </form>
     </Fragment>
