@@ -1,10 +1,21 @@
-body {
+html {
+  --gold: #ffd700;
+  --text-color: #ffffff;
+}
+
+.body {
   background: linear-gradient(to right, #004e92, #000428);
   font-family: sans-serif;
 }
 
-header {
+.header {
+  text-align: center;
+  color: var(--text-color);
   margin: 2rem 0;
+}
+
+.header__name {
+  color: var(--gold);
 }
 
 .alert p {
@@ -117,4 +128,10 @@ h2 {
   background-color: #004085;
   padding: 1rem;
   color: white;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-color);
 }
