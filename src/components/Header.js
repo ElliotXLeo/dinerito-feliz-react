@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 function Header({ company }) {
 
@@ -11,6 +12,10 @@ function Header({ company }) {
       <p>{slogan}</p>
     </header>
   );
+}
+
+Header.propTypes = {
+  company: PropTypes.object.isRequired
 }
 
 export default Header;

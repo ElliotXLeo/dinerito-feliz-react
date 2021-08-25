@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Egreso = ({ egreso, eliminarEgreso }) => {
 
@@ -20,6 +21,11 @@ const Egreso = ({ egreso, eliminarEgreso }) => {
       </p>
     </li>
   );
+}
+
+Egreso.propTypes = {
+  egreso: PropTypes.object.isRequired,
+  eliminarEgreso: PropTypes.func.isRequired
 }
 
 export default Egreso;

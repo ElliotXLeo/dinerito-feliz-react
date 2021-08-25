@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Footer = ({ currentDate, author }) => {
   return (
@@ -6,6 +7,11 @@ const Footer = ({ currentDate, author }) => {
       <p>🦄Copyright &copy; {currentDate} {author}. Todos los derechos reservados.🦄</p>
     </footer>
   );
+}
+
+Footer.propTypes = {
+  currentDate: PropTypes.number.isRequired,
+  author: PropTypes.string.isRequired
 }
 
 export default Footer;

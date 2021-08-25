@@ -1,5 +1,6 @@
 import React from 'react';
 import Egreso from './Egreso';
+import PropTypes from 'prop-types';
 
 const Listado = ({ egresos, eliminarEgreso }) => {
 
@@ -19,6 +20,11 @@ const Listado = ({ egresos, eliminarEgreso }) => {
       })}
     </section>
   );
+}
+
+Listado.propTypes = {
+  egresos: PropTypes.array.isRequired,
+  eliminarEgreso: PropTypes.func.isRequired
 }
 
 export default Listado;

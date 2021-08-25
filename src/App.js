@@ -16,9 +16,8 @@ function App() {
     comercialActivity: 'Contabilidad'
   }
 
-  const author = 'Elliot Garamendi';
-
   const currentDate = new Date().getFullYear();
+  const author = 'Elliot Garamendi';
 
   const [presupuesto, guardarPresupuesto] = useState(0);
   const [restante, guardarRestante] = useState(0);
@@ -136,8 +135,8 @@ function App() {
       </main>
 
       <Footer
-        author={author}
         currentDate={currentDate}
+        author={author}
       />
     </Fragment >
   );

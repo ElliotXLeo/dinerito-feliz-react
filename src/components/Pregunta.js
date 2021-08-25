@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from 'react';
-import Error from './Error';
-
+import PropTypes from 'prop-types';
 import Swal from 'sweetalert2';
+
+import Error from './Error';
 
 const Pregunta = ({ guardarPresupuesto, guardarRestante, actualizarMostrarPregunta }) => {
 
@@ -73,6 +74,12 @@ const Pregunta = ({ guardarPresupuesto, guardarRestante, actualizarMostrarPregun
       </form>
     </Fragment>
   );
+}
+
+Pregunta.propTypes = {
+  guardarPresupuesto: PropTypes.func.isRequired,
+  guardarRestante: PropTypes.func.isRequired,
+  actualizarMostrarPregunta: PropTypes.func.isRequired
 }
 
 export default Pregunta;
