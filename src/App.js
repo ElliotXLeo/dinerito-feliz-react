@@ -36,6 +36,23 @@ function App() {
 
       const presupuestoRestante = restante - egreso.valorEgreso;
       guardarRestante(presupuestoRestante);
+
+      if (presupuestoRestante < 0) {
+        Swal.fire({
+          position: 'center',
+          title: 'No cuenta con tanto presupuesto.',
+          text: 'Se registrará como restante negativo.',
+          icon: 'warning',
+          confirmButtonText: 'Aceptar',
+          timer: 4000,
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
+        });
+      }
     }
   }, [crearEgreso, egreso, egresos, restante]);
 
