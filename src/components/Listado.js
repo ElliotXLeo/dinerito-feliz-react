@@ -1,7 +1,7 @@
 import React from 'react';
 import Egreso from './Egreso';
 
-const Listado = ({ egresos }) => {
+const Listado = ({ egresos, eliminarEgreso }) => {
 
   const titulo = egresos.length === 0 ? '💸Registra tu egreso💸' : '💸Administrar egresos💸';
 
@@ -13,6 +13,7 @@ const Listado = ({ egresos }) => {
           <Egreso
             key={egreso.id}
             egreso={egreso}
+            eliminarEgreso={eliminarEgreso}
           />
         );
       })}

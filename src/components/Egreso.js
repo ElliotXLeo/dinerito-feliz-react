@@ -1,13 +1,8 @@
 import React from 'react';
 
-const Egreso = ({ egreso }) => {
+const Egreso = ({ egreso, eliminarEgreso }) => {
 
   const { descripcionEgreso, valorEgreso, id } = egreso;
-
-
-  const eliminarEgreso = (id) => {
-    console.log(id);
-  }
 
   return (
     <li className="gastos animate__animated animate__fadeInUp">

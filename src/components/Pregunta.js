@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import Error from './Error';
 
+import Swal from 'sweetalert2';
+
 const Pregunta = ({ guardarPresupuesto, guardarRestante, actualizarMostrarPregunta }) => {
 
   const [cantidad, guardarCantidad] = useState(0);
@@ -21,6 +23,20 @@ const Pregunta = ({ guardarPresupuesto, guardarRestante, actualizarMostrarPregun
     guardarPresupuesto(cantidad);
     guardarRestante(cantidad);
     actualizarMostrarPregunta(false);
+
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: '¡Registrado!',
+      showConfirmButton: false,
+      timer: 1000,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    });
   }
 
   return (

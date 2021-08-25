@@ -6,6 +6,8 @@ import Formulario from "./components/Formulario";
 import Listado from "./components/Listado";
 import ControlPresupuesto from "./components/ControlPresupuesto";
 
+import Swal from 'sweetalert2';
+
 function App() {
 
   const company = {
@@ -37,6 +39,53 @@ function App() {
       guardarRestante(presupuestoRestante);
     }
   }, [crearEgreso, egreso, egresos, restante]);
+
+  const eliminarEgreso = (id) => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success mx-2',
+        cancelButton: 'btn btn-danger mx-2'
+      },
+      buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+      title: '¿Estás segur@?',
+      text: "¡No podrás revertir esto!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: '¡Sí, bórralo!',
+      cancelButtonText: '¡No, cancélalo!',
+      reverseButtons: true,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const egresosRestante = egresos.filter((egreso) => {
+          if (egreso.id === id) {
+            const presupuestoRestante = restante + egreso.valorEgreso;
+            guardarRestante(presupuestoRestante);
+          }
+          return (egreso.id !== id);
+        });
+        guardarEgresos(egresosRestante);
+        swalWithBootstrapButtons.fire(
+          '¡Eliminado!',
+          'Ha sido eliminado.',
+          'success'
+        );
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        swalWithBootstrapButtons.fire(
+          'Cancelad@',
+          'Está seguro :)',
+          'error'
+        );
+      }
+    });
+  }
 
   return (
     <Fragment>
@@ -70,6 +119,7 @@ function App() {
                         <section className="col-md-5 my-2">
                           <Listado
                             egresos={egresos}
+                            eliminarEgreso={eliminarEgreso}
                           />
                           <ControlPresupuesto
                             presupuesto={presupuesto}
